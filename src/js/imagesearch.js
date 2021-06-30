@@ -1,7 +1,7 @@
 export default class SearchImage {
   static async getImage(search) {
     try { 
-      const response = await fetch(`https://images-api.nasa.gov/search?q=${search}`)
+      const response = await fetch(`https://images-api.nasa.gov/search?q=${search}&media_type=image`);
       if (!response.ok) {
         throw Error(response.statusText);
       }

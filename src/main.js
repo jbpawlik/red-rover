@@ -3,13 +3,37 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import PhotoOfTheDay from './js/photo.js';
+import SearchImage from './js/imagesearch.js';
+
+// response.data[index].images.preview_gif.url
+
+//UI Logic for NASA Image Search
+
+function getElements(response) {
+  if (response) {
+    $('#showPic').html("<img src=" + response.collection.items[0].links[0].href + ">");
+    console.log("<img src=" + response.collection.items[0].links[0].href)
+  } else {
+    $('#showPic').text(`There was an error ${response}`);
+  }
+}
+
+async function makeApiCall(search) {
+  const response = await SearchImage.getImage(search);
+  getElements(response);
+}
+
+$(document).ready(function() {
+  $('#searchImage').click(function(event) {
+    event.preventDefault();
+    let search = $('#img').val();
+    makeApiCall(search);
+  });
+});
 
 
-let search = $('#userSearch').val()
-`https://images-api.nasa.gov/search?q=${search}`
 
 //UI Logic for Astromony Picture of the Day
-
 
 function getPhoto(response) {
   if (response) {
