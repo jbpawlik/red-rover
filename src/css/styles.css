@@ -27,3 +27,6 @@ body {
 .button:active {
   background: rgb(170, 255, 0);
 }
+img {
+  height: 200px;
+}

@@ -30,9 +30,9 @@ $('#searchImage').click(function(event) {
 //UI Logic for Astromony Picture of the Day
 function getPhoto(response) {
   if (response) {
-    $('#showPic').html('<iframe width="420" height="315" src=' + response.url + '> + </iframe>');
+    $('#photoOfTheDay').html('<iframe src=' + response.url + '> + </iframe>');
   } else {
-    $('#showPic').text(`There was an error: ${response.message}`);
+    $('#photoOfTheDay').text(`There was an error: ${response.message}`);
   }
 }
 
@@ -60,6 +60,6 @@ $('#pictureButton').click(function(event) {
   request.send();
 
   function getElements(response) {
-    $('#marsPhoto').html("<img height=200 src=" + response.photos[0].img_src + ">");
+    $('#marsPhoto').html("<img src=" + response.photos[0].img_src + ">");
   }
 });
