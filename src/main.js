@@ -2,10 +2,42 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
+import PhotoOfTheDay from './js/photo.js';
 
 
 
-//UI Logic
+//UI Logic for Astromony Picture of the Day
+
+
+function getPhoto(response) {
+  if (response) {
+    $('#showPic').html('<iframe width="420" height="315" src=' + response.url + '> + </iframe>');
+  } else {
+    $('#showPic').text(`There was an error: ${response.message}`);
+  }
+}
+
+$('#photoOfDay').click(function(event) {
+  event.preventDefault();
+  PhotoOfTheDay.getPhoto()
+    .then(function(response) {
+      getPhoto(response);
+    });
+});
+
+
+// $('#searchButton').click(function(event) {
+//   event.preventDefault();
+
+//   searchGiphy.getGiph()
+//     .then(function(response) {
+//       getElements(response);
+//       console.log(response);
+//     });
+// });
+
+
+//UI Logic for Mars Rover Camera
 $('#pictureButton').click(function(event) {
   event.preventDefault();
 
@@ -23,7 +55,7 @@ $('#pictureButton').click(function(event) {
   request.send();
 
   function getElements(response) {
-    console.log(response.photos[0].img_src)
+    console.log(response.photos[0].img_src);
     $('#showPic').append("<img src=" + response.photos[0].img_src + ">");
   }
 
