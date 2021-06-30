@@ -5,6 +5,8 @@ import './css/styles.css';
 import PhotoOfTheDay from './js/photo.js';
 
 
+let search = $('#userSearch').val()
+`https://images-api.nasa.gov/search?q=${search}`
 
 //UI Logic for Astromony Picture of the Day
 
@@ -26,15 +28,7 @@ $('#photoOfDay').click(function(event) {
 });
 
 
-// $('#searchButton').click(function(event) {
-//   event.preventDefault();
 
-//   searchGiphy.getGiph()
-//     .then(function(response) {
-//       getElements(response);
-//       console.log(response);
-//     });
-// });
 
 
 //UI Logic for Mars Rover Camera
