@@ -1,1 +1,29 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgb(0, 119, 255), navy, rgb(2, 0, 71));
+  height: 100vh;
+  width: 100vw;
+}
+.jumbotron {
+  position: center;
+}
 
+.button {
+  padding: 20px 20px;
+  border-radius: 50%;
+  border: none;
+  background: red;
+  color: navy;
+}
+
+.button:hover {
+  padding: 22px 22px;
+  background: rgb(253, 3, 107);
+  color: cyan;
+}
+
+.button:active {
+  background: rgb(170, 255, 0);
+}

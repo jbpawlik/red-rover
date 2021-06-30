@@ -4,20 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Astro-News</title>
 </head>
 <body>
-    <div>
-      <button class="button" id="pictureButton">Click for Mars Rover Photo</button>
-      <button class="button" id="photoOfDay">Click for Photo of the Day</button>
-      <button class="button" id="searchImage">Click for a surprise</button>
-    </div>
-    <form>
-        <input type="text" id="img" name="imgSearch">
-    </form>
-
-    <div id="showPic">
-
+    <div class="container">
+      <div id="jumbotron">
+        <h1>Astro-News</h1>
+      </div>
+      <div>
+        <button class="button" id="pictureButton">Click for Mars Rover Photo</button>
+        <p id="marsPhoto"></p>
+      </div>
+      <div>
+        <button class="button" id="photoOfDay">Click for Photo of the Day</button>
+        <p id="photoOfTheDay"></p>
+      </div>
+      <div>
+        <form>
+            <input type="text" id="img" name="imgSearch">
+            <button class="button" id="searchImage">Click to search NASA images</button>
+        </form>
+      </div>
+      <div id="showPic">
+      </div>
+      <div>
+      </div>
     </div>
 </body>
 </html>
