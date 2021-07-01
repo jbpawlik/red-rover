@@ -1,15 +1,30 @@
-body {
+/* * {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  box-sizing: border-box;
+} */
+
+body {
+  text-align: center;
+  font-family: Impact, "Arial Narrow Bold", sans-serif;
   background: linear-gradient(to bottom, rgb(0, 119, 255), navy, rgb(2, 0, 71));
+  text-shadow: 1px 1px cyan;
   height: 100vh;
   width: 100vw;
 }
+
 .jumbotron {
-  position: center;
+  text-align: center;
+  padding-top: 350px;
+  padding-bottom: 600px;
 }
 
+.showResults {
+  /* flex-direction: row; */
+  margin-top: 75px;
+  position: center;
+  height: 35vh;
+  width: 35vw;
+}
 .button {
   padding: 20px 20px;
   border-radius: 50%;
@@ -28,5 +43,5 @@ body {
   background: rgb(170, 255, 0);
 }
 img {
-  height: 200px;
+  height: 70vh;
 }

@@ -11,23 +11,24 @@
       <div id="jumbotron">
         <h1>Astro-News</h1>
       </div>
-      <div>
+      <div class="buttonArea">
         <button class="button" id="pictureButton">Click for Mars Rover Photo</button>
-        <p id="marsPhoto"></p>
-      </div>
-      <div>
         <button class="button" id="photoOfDay">Click for Photo of the Day</button>
-        <p id="photoOfTheDay"></p>
-      </div>
-      <div>
         <form>
-            <input type="text" id="img" name="imgSearch">
+            <input type="text" id="img" name="imgSearch" placeholder="Enter Keyword"/>
             <button class="button" id="searchImage">Click to search NASA images</button>
         </form>
       </div>
-      <div id="showPic">
-      </div>
-      <div>
+      <div class="showResults" class="row">
+        <div class="col-4">
+          <div>Curiosity Rover Front Camera<span id="frontRover"></span></div>
+          <div>Curiosity Rover Rear Camera<span id="rearRover"></span></div>
+        </div>
+        <div class="col-4">
+          <div id="photoOfTheDay"></div>
+        </div>
+        <div class="col-4">
+          <div id="showPic"></div>
       </div>
     </div>
 </body>

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import PhotoOfTheDay from './js/photo.js';
 import SearchImage from './js/imagesearch.js';
+import MarsRover from './js/marsrover';
 
 // response.data[index].images.preview_gif.url
 
@@ -44,22 +45,54 @@ $('#photoOfDay').click(function(event) {
     });
 });
 
-//UI Logic for Mars Rover Camera
-$('#pictureButton').click(function(event) {
-  event.preventDefault();
+//UI Logic for Mars Rover Camera, using Fetch
 
-  let request = new XMLHttpRequest();
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&api_key=${process.env.API_KEY}`;
-  request.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-      const response = JSON.parse(this.responseText);
-      getElements(response);
-    }
-  };
-  request.open('GET', url, true);
-  request.send();
-
-  function getElements(response) {
-    $('#marsPhoto').html("<img src=" + response.photos[0].img_src + ">");
+function frontResponse(response) {
+  if (response) {
+    $('#frontRover').html("<img src=" + response.photos[0].img_src + ">");
+    console.log(response.photos[0]);
+  } else {
+    $('#frontRover').text(`There has been an error: + ${response.message}`);
   }
+}
+
+function rearResponse(response) {
+  if (response) {
+    $('#rearRover').html("<img src=" + response.photos[0].img_src + ">");
+    console.log(response.photos[0]);
+  } else {
+    $('#rearRover').text(`There has been an error: + ${response.message}`);
+  }
+}
+
+$('#pictureButton').click(function() {
+  MarsRover.frontCamera()
+    .then(function(response) {
+      frontResponse(response);
+    });
+
+  MarsRover.rearCamera()
+    .then(function(response) {
+      rearResponse(response);
+    });
 });
+
+//API Call without using promises
+// $('#pictureButton').click(function(event) {
+//   event.preventDefault();
+
+//   let request = new XMLHttpRequest();
+//   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1000&api_key=${process.env.API_KEY}`;
+//   request.onreadystatechange = function() {
+//     if (this.readyState === 4 && this.status === 200) {
+//       const response = JSON.parse(this.responseText);
+//       getElements(response);
+//     }
+//   };
+//   request.open('GET', url, true);
+//   request.send();
+
+//   function getElements(response) {
+//     $('#marsPhoto').html("<img src=" + response.photos[0].img_src + ">");
+//   }
+// });
