@@ -5,8 +5,7 @@ import './css/styles.css';
 import PhotoOfTheDay from './js/photo.js';
 import SearchImage from './js/imagesearch.js';
 import MarsRover from './js/marsrover';
-
-// response.data[index].images.preview_gif.url
+import Epic from './js/epic';
 
 //UI Logic for NASA Image Search
 function getElements(response) {
@@ -50,7 +49,6 @@ $('#photoOfDay').click(function(event) {
 function frontResponse(response) {
   if (response) {
     $('#frontRover').html("<img src=" + response.photos[0].img_src + ">");
-    console.log(response.photos[0]);
   } else {
     $('#frontRover').text(`There has been an error: + ${response.message}`);
   }
@@ -59,13 +57,13 @@ function frontResponse(response) {
 function rearResponse(response) {
   if (response) {
     $('#rearRover').html("<img src=" + response.photos[0].img_src + ">");
-    console.log(response.photos[0]);
   } else {
     $('#rearRover').text(`There has been an error: + ${response.message}`);
   }
 }
 
-$('#pictureButton').click(function() {
+$('#epicButton').click(function(event) {
+  event.preventDefault();
   MarsRover.frontCamera()
     .then(function(response) {
       frontResponse(response);
@@ -76,6 +74,41 @@ $('#pictureButton').click(function() {
       rearResponse(response);
     });
 });
+
+//EPIC Image function
+
+function getEpic(response) {
+  if (response) {
+    $('#epicResponse').html("<img src=" + response + ">");
+  }
+}
+
+$('#epicButton').click(function(event) {
+  event.preventDefault();
+
+  let year = $('#enterYear').val();
+  let month = $('#enterMonth').val();
+  let day = $('#enterDay').val();
+  let dateDash = year + '-' + month + '-' + day;
+  let dateSlash = year + '/' + month + '/' + day;
+  let identifier = '';
+  
+  Epic.epicDate(dateDash)
+    .then(function(response) {
+      identifier = response[0].identifier;
+    })
+    .then(Epic.epicPic(dateSlash, identifier))
+    .then(function(response) {
+      getEpic(response);
+
+    });
+});
+//   Epic.epicPic(dateSlash, identifier)
+//     .then(function(response) {
+//       getEpic(response);
+//     });
+// });
+
 
 //API Call without using promises
 // $('#pictureButton').click(function(event) {

@@ -1,8 +1,10 @@
-/* * {
+/* {
   display: flex;
   box-sizing: border-box;
 } */
-
+html {
+  position: relative;
+}
 body {
   text-align: center;
   font-family: Impact, "Arial Narrow Bold", sans-serif;
@@ -18,15 +20,14 @@ body {
   padding-bottom: 600px;
 }
 
-.showResults {
-  /* flex-direction: row; */
+#showResults {
   margin-top: 75px;
   position: center;
   height: 35vh;
   width: 35vw;
 }
 .button {
-  padding: 20px 20px;
+  padding: 20px;
   border-radius: 50%;
   border: none;
   background: red;
@@ -43,5 +44,9 @@ body {
   background: rgb(170, 255, 0);
 }
 img {
-  height: 70vh;
+  height: 35vh;
+}
+
+.col-4 {
+  display: inline-flexbox;
 }
