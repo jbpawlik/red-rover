@@ -62,7 +62,7 @@ function rearResponse(response) {
   }
 }
 
-$('#epicButton').click(function(event) {
+$('#pictureButton').click(function(event) {
   event.preventDefault();
   MarsRover.frontCamera()
     .then(function(response) {
@@ -77,11 +77,11 @@ $('#epicButton').click(function(event) {
 
 //EPIC Image function
 
-function getEpic(response) {
-  if (response) {
-    $('#epicResponse').html("<img src=" + response + ">");
-  }
-}
+// function getEpic(response) {
+//   if (response) {
+//     $('#epicResponse').html("<img src=" + response + ">");
+//   }
+// }
 
 $('#epicButton').click(function(event) {
   event.preventDefault();
@@ -91,23 +91,23 @@ $('#epicButton').click(function(event) {
   let day = $('#enterDay').val();
   let dateDash = year + '-' + month + '-' + day;
   let dateSlash = year + '/' + month + '/' + day;
-  let identifier = '';
-  
+
   Epic.epicDate(dateDash)
     .then(function(response) {
+      if (response instanceof Error) {
+        throw Error(`test`);
+      }
+      let identifier;
       identifier = response[0].identifier;
+      Epic.epicPic(dateSlash, identifier)
+        .then(function(response) {
+          $('#epicResponse').html("<img src=" + response + ">");
+        });
     })
-    .then(Epic.epicPic(dateSlash, identifier))
-    .then(function(response) {
-      getEpic(response);
-
+    .catch(function(error) {
+      return error;
     });
 });
-//   Epic.epicPic(dateSlash, identifier)
-//     .then(function(response) {
-//       getEpic(response);
-//     });
-// });
 
 
 //API Call without using promises
