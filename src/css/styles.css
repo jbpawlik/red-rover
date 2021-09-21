@@ -1,5 +1,62 @@
 img {
+  border-radius: 100px;
   width: 400px;
-  display: inline-block;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+body {
+  background-image: url('../assets/images/mars-surface.jpeg');
+  background-size: cover;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.container {
+  margin-top: 5em;
+}
+
+.col-lg-4, .overflow-2 {
+  overflow: hidden;
+  border: 10px double rgba(0, 0, 0, 0.507);
+  border-radius: 100px;
+  width: 400px;
+  height: 400px;
+}
+
+.textBoxen {
+  background-color: rgba(128, 128, 128, 0.782);
+}
+
+p { 
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  font-size: 18px;
+}
+
+h1 {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 84px;
+}
+
+#upFront {
+  background-image: url("../assets/images/up-arrow1.png");
+  background-position: center;
+  background-size:cover;
+}
+
+#downBack {
+  background-image: url("../assets/images/down-arrow1.png");
+  background-position: center;
+  background-size:cover;
 }

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +11,38 @@
 </head>
 <body>
   <div class="container">
-    <h1>Red Rover</h1>
-    <div class="card">
-      <div class="card-body">
+    <div class="row">
+      <div class="col-lg-4 offset-2 textBoxen">
+        <p>Every day, Americans across the galaxy play a crucial role in deciding the future of space exploration.<br><br>Exercise your right to vote today: should Mars' "Curiosity" rover trek boldly forward, or should fall? Will you be the lucky one who gets to spin the navigation dials? Bookmark Red Rover today!</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="assets/images/moon.jpg">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-2">
         <span id="frontRover"></span>
       </div>
-      <div class="card-title">
-        <p>Curiosity Rover Front Camera</p>
+      <div class="col-lg-4 textBoxen" id="upFront">
+        <h1>FRONT</h1>
       </div>
-        <p>Curiosity Rover Nav Camera<span id="navRover"></span></p>
-      <div class="col-4">
-        <p>Curiosity Rover Rear Camera<span id="rearRover"></span></p>
-      </div>
-      <!-- <div class="col-4">
-        <p>Curiosity Rover Mast Camera<span id="mastRover"></span></p>
-      </div> -->
     </div>
-  </div>
+    <div class="row">
+      <div class="col-lg-4 offset-2 textBoxen">
+        <p>Curiosity Rover Navigation Camera</p>
+      </div>
+      <div class="col-lg-4">
+        <span id="navRover"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-2">
+        <span id="rearRover"></span>
+      </div>
+      <div class="col-lg-4 textBoxen" id="downBack">
+        <h1>REAR</h1>
+      </div>
+    </div>
   </div>
 </body>
 </html>
