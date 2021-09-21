@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Galactic Age',
+      title: 'mySpaceV2',
       template: './src/index.html',
       inject: 'body'
     }),

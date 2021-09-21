@@ -4,45 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astro-News</title>
+  <title>Red Rover</title>
 </head>
 <body>
   <div class="container">
-    <div id="jumbotron">
-      <h1>Astro-News</h1>
+    <h1>Red Rover</h1>
+    <div class="card">
+      <div class="card-body">
+        <span id="frontRover"></span>
+      </div>
+      <div class="card-title">
+        <p>Curiosity Rover Front Camera</p>
+      </div>
+        <p>Curiosity Rover Nav Camera<span id="navRover"></span></p>
+      <div class="col-4">
+        <p>Curiosity Rover Rear Camera<span id="rearRover"></span></p>
+      </div>
+      <!-- <div class="col-4">
+        <p>Curiosity Rover Mast Camera<span id="mastRover"></span></p>
+      </div> -->
     </div>
   </div>
-  <div class="container">
-    <div class="buttonArea">
-      <button class="button" id="pictureButton">Click for Mars Rover Photo</button>
-      <button class="button" id="photoOfDay">Click for Photo of the Day</button>
-      <form>
-          <input type="text" id="img" name="imgSearch" placeholder="Enter Keyword"/>
-          <button class="button" id="searchImage">Click to search NASA images</button>
-      </form>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <p>Curiosity Rover Front Camera<span id="frontRover"></span></p>
-          <p>Curiosity Rover Rear Camera<span id="rearRover"></span></p>
-        </div>
-        <div class="col-4">
-          <p id="photoOfTheDay"></p>
-        </div>
-        <div class="col-4">
-          <p id="showPic"></p>
-        </div>
-      </div>
-      <form id="epicForm">
-        <p>Enter a date to search the Earth Polychromatic Imaging Camera database.</p>
-        <input id="enterYear" type="number" value="2021">Enter 4-digit year
-        <input id="enterMonth" type="number" value="05">Enter 2-digit month
-        <input id="enterDay" type="number" value="16">Enter 2-digit Day
-        <button class="button" id="epicButton">Search EPIC</button>
-      </form>
-      <div id="epicResponse"></div>
-    </div>
   </div>
 </body>
 </html>

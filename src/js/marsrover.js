@@ -1,4 +1,7 @@
 export default class MarsRover {
+
+  
+
   static frontCamera() {
     return fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.API_KEY}&camera=FHAZ`)
       .then(function(response) {
@@ -14,6 +17,31 @@ export default class MarsRover {
 
   static rearCamera() {
     return fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.API_KEY}&camera=RHAZ`)
+      .then(function(response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(function(error) {
+        return error;
+      });
+  }
+
+  // static mastCamera() {
+  //   return fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.API_KEY}&camera=CHEMCAM`)
+  //     .then(function(response) {
+  //       if (!response.ok) {
+  //         throw Error(response.statusText);
+  //       }
+  //       return response.json();
+  //     })
+  //     .catch(function(error) {
+  //       return error;
+  //     });
+  // }
+  static navCamera() {
+    return fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.API_KEY}&camera=NAVCAM`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
