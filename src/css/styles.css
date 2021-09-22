@@ -34,6 +34,15 @@ body {
 
 }
 
+#frontCam {}
+
+.upvote {
+  border-color: rgb(216, 77, 77);
+}
+
+.downvote {
+  border-color: rgb(54, 84, 216);
+}
 p, h3 { 
   min-height: 100%;
   display: flex;
