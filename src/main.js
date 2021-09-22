@@ -30,7 +30,7 @@ $(document).ready(function() {
       displayCallErrors(error);
     });
   
-    MarsRover.rearCamera()
+  MarsRover.rearCamera()
     .then(function(response) {
       if (response) {
         $('#rearRover').html("<img src=" + response.photos[0].img_src + ">");
@@ -44,7 +44,7 @@ $(document).ready(function() {
       displayCallErrors(error);
     });
   
-    MarsRover.navCamera()
+  MarsRover.navCamera()
     .then(function(response) {
       if (response) {
         $('#navRover').html("<img src=" + response.photos[0].img_src + ">");
@@ -60,14 +60,37 @@ $(document).ready(function() {
 });
 
 // Upvote-Downvote UI
+let upvote = false;
+let downvote = false;
+
 $('#upFront').on('click', function(e){
   e.preventDefault();
   $(this).toggleClass('upvote');
-  $('#downBack').toggleClass('downvote')
+  if (downvote === true) {
+    downvote = false;
+    $('#downBack').toggleClass('downvote');
+    upvote = true;
+  } else if (upvote === true) {
+    console.log(upvote)
+    console.log(downvote)
+    upvote = false;
+  } else {
+    upvote = true;
+  }
 });
 
 $('#downBack').on('click', function(e){
   e.preventDefault();
   $(this).toggleClass('downvote');
-  $('#upFront').toggleClass('upvote')
+  if (upvote === true) {
+    upvote = false
+    $('#upFront').toggleClass('upvote');
+    downvote = true;
+  } else if (downvote === true) {
+    console.log(upvote)
+    console.log(downvote)
+    downvote = false;
+  } else {
+    downvote = true;
+  }
 });
